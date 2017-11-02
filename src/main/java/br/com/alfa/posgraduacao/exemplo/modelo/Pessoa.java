@@ -19,6 +19,19 @@ public class Pessoa  {
 	private String cnpj;
 	
 	
+	
+	
+	public Pessoa() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Pessoa(Long codigo, String nome, Integer idade, String cnpj) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.idade = idade;
+		this.cnpj = cnpj;
+	}
 	public Long getCodigo() {
 		return codigo;
 	}

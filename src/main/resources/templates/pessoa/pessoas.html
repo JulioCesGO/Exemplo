@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+	<tbody>
+		<tr data-th-each="pessoa : ${pessoas}">
+			<td data-th-text="${pessoa.nome}"></td>
+			<td data-th-text="${pessoa.idade}"></td>
+			<td>
+				<form action="/${pessoa.id}" method="post">
+					<input type="hidden" name="_method" value="DELETE"/>
+					<button>Remover</button> 
+				</form>
+			</td>
+			
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

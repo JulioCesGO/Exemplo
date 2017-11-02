@@ -14,9 +14,5 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/home")
-	public String home(Model model)
-	{
-		return "index";
-	}
+	
 }
