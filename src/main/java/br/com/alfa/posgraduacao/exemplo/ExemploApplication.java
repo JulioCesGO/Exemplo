@@ -1,6 +1,5 @@
 package br.com.alfa.posgraduacao.exemplo;
 
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
