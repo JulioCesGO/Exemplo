@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org" >
 
 <head th:fragment="headerFragment">
 	<title>Insert title here</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<link th:href="@{/components/bootstrap/dist/css/bootstrap.css}" rel="stylesheet" />
 
 </head>
@@ -12,10 +13,11 @@
 	<!--  Menu -->
 </div>
 
-<div th:fragment="scriptFragment">
+<th:block th:fragment="scriptFragment" th:remove="all">
 	<!-- Script  -->
+	<script th:attr="src=@{/components/jquery/dist/jquery.js}"></script>
 	<script th:attr="src=@{/components/bootstrap/dist/js/bootstrap.js}"></script>
-    <script th:attr="src=@{/components/jquery/dist/jquery.js}"></script>
-</div>
+    
+</th:block>
 </body>
 </html>

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +24,7 @@ public class PessoaController {
 	@RequestMapping(value="",method=RequestMethod.GET)
 	public String index(Model model)
 	{
-		List<Pessoa> pessoas = pessoaService.ListarTodosPadrao();
+		List<Pessoa> pessoas = pessoaService.ListarTodos();
 		
 		model.addAttribute("pessoas", pessoas);
 		return "pessoa/pessoas";
@@ -31,11 +33,7 @@ public class PessoaController {
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String abrir(@PathVariable Long id,Model model)
 	{
-		//Pessoa pessoa = pessoaService.Abrir(id);
-		
-		List<Pessoa> pessoas = pessoaService.ListarTodosPadrao();
-		
-		Pessoa pessoa = pessoas.get(0);
+		Pessoa pessoa = pessoaService.Abrir(id);
 		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("method", "PUT");
 		return "pessoa/pessoa";
@@ -50,20 +48,26 @@ public class PessoaController {
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public String atualizar(@PathVariable Long id,Model model)
+	public String atualizar(@PathVariable Long id, @ModelAttribute Pessoa pessoa, Model model, BindingResult result)
 	{
-		Pessoa pessoa = new Pessoa();
-		model.addAttribute("pessoa", pessoa);
-		
+		if (result.hasErrors())
+		{
+			model.addAttribute("pessoa", pessoa);
+			model.addAttribute("method", "PUT");
+		}
+		pessoaService.Salvar(pessoa);		
 		return "redirect:/pessoa/"+id;
 	}
 	
 	@RequestMapping(value="/novo",method=RequestMethod.POST)
-	public String salvar(Model model)
+	public String salvar(@ModelAttribute Pessoa pessoa, Model model, BindingResult result)
 	{
-		Pessoa pessoa = new Pessoa();
-		model.addAttribute("pessoa", pessoa);
-		model.addAttribute("method", "POST");
+		if (result.hasErrors())
+		{
+			model.addAttribute("pessoa", pessoa);
+			model.addAttribute("method", "POST");
+		}
+		pessoaService.Salvar(pessoa);		
 		return "redirect:/pessoa";
 	}
 	
@@ -71,7 +75,8 @@ public class PessoaController {
 	public String remover(@PathVariable Long id,Model model)
 	{
 		Pessoa pessoa = new Pessoa();
-		model.addAttribute("pessoa", pessoa);
+		pessoa.setCodigo(id);
+		pessoaService.Remover(pessoa);
 		return "redirect:/pessoa";
 	}
 }

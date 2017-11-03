@@ -6,40 +6,32 @@
 </head>
 <body>
 
-	<div th:include="thymeleaf/layout :: menuFragment"></div>
-	<form action="" th:object="${pessoa}" method="post">
-	<input type="hidden" name="_method" value="" th:attr="value=${method}"/>
-	<div class="row">
-		<div class="lg-12 col">
-			<label>Codigo
-				<input type="text" th:field="${pessoa.codigo}" />
+<div th:include="thymeleaf/layout :: menuFragment"></div>
+<div class="container">
+<form action="" th:object="${pessoa}" method="post">
+	<input type="hidden" name="_method" value="" th:attr="value=${method}"/>	
+		<div class="form-group">
+			<label for="codigo">Codigo
+			<input type="text" class="form-control disabled" id="codigo" th:field="${pessoa.codigo}"  />
 			</label>
 		</div>
-	</div>
-	<div class="row">
-		<div class="lg-12 col">
+	
+		<div class="form-group col-12">
 			<label>Nome
-				<input type="text" th:field="${pessoa.nome}" />
+				<input type="text" class="form-control" th:field="${pessoa.nome}" />
 			</label>
 		</div>
-	</div>
-	<div class="row">
-		<div class="lg-12 col">
+	
+		<div class="form-group">
 			<label>Idade
-				<input type="number" th:field="${pessoa.idade}" />
+				<input type="number" class="form-control" th:field="${pessoa.idade}" />
 			</label>
 		</div>
-	</div>
-	<div class="row">
-		<div class="lg-12 col">
-			<button type="submit">Salvar</button>
-			<button type="button" >Voltar</button>
-		</div>
-	</div>
-
-
+		<button type="submit" class="btn">Salvar</button>
+		<button type="button" class="btn" id="voltar">Voltar</button>
 </form>
-<div th:include="thymeleaf/layout :: scriptFragment">
 </div>
+<div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
+<script th:attr="src=@{/exemplo/pessoa/pessoa.js}" ></script>
 </body>
 </html>

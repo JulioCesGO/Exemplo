@@ -23,6 +23,8 @@ public class PessoaService {
 		pessoaRepositorio.save(pessoa);
 	}
 	
+	
+	
 	public List<Pessoa> ListarTodos()
 	{
 		return pessoaRepositorio.findAll();
@@ -46,4 +48,11 @@ public class PessoaService {
 	{
 		return pessoaRepositorio.findOne(id);
 	}
+	
+	public void Remover(Pessoa pessoa)
+	{
+		this.pessoaRepositorio.delete(pessoa);
+	}
+	
+	
 }

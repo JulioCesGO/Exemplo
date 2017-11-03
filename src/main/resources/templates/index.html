@@ -9,15 +9,10 @@
 	<div th:include="thymeleaf/layout :: menuFragment"></div>
 	
 <h1 id="demo">Hello World</h1>
-<div th:include="thymeleaf/layout :: scriptFragment">
-
-</div>
+<A th:href="@/pessoa" href=#">Pessoa</A>
+<div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
 <script type="text/javascript">
-$(document).ready(function(){
-   
-        alert('ola');
-   
-});
+
 </script>
 </body>
 </html>

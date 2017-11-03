@@ -6,27 +6,40 @@
 </head>
 <body>
 	<div th:include="thymeleaf/layout :: menuFragment"></div>
-<div class="row">
-	<div class="lg-12 col">
-		<table>
-			<tbody>
-				<tr data-th-each="pessoa : ${pessoas}">
-					<td data-th-text="${pessoa.nome}"></td>
-					<td data-th-text="${pessoa.idade}"></td>
-					<td>
-						<a th:href="@{'/pessoa/' + *{codigo} ">Abrir</a>
-						<form th:action="@{'/pessoa/' + ${pessoa.codigo} }" method="post">
-							<input type="hidden" name="_method" value="DELETE"/>
-							<button>Remover</button> 
-						</form>
-					</td>
-					
-				</tr>
-			</tbody>
-		</table>
+	<div class="container">
+	<div class="row">
+		<div class="col">
+			<a href="/pessoa/novo" class="btn btn-primary">Adicionar Novo</a>
+		</div>
 	</div>
-</div>
-
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Idade</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="pessoa : ${pessoas}">
+						<td scope="row" data-th-text="${pessoa.nome}"></td>
+						<td data-th-text="${pessoa.idade}"></td>
+						<td>
+							<a  class="btn btn-primary" th:href="@{'/pessoa/' + ${pessoa.codigo} }">Abrir</a>
+							<form th:action="@{'/pessoa/' + ${pessoa.codigo} }" method="post">
+								<input type="hidden" name="_method" value="DELETE"/>
+								<button class="btn btn-primary">Remover</button> 
+							</form>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
 <div th:include="thymeleaf/layout :: scriptFragment"></div>
 </body>
 </html>

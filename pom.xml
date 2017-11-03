@@ -31,6 +31,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
@@ -106,6 +111,10 @@
 			      <filesets>
 			        <fileset>
 			          <directory>src/main/resources/static/components</directory>
+			          
+			        </fileset>
+			        <fileset>
+			          
 			          <directory>src/main/resources/static/node_modules</directory>
 			        </fileset>
 			      </filesets>
