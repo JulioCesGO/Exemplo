@@ -1,0 +1,20 @@
+{
+  "name": "exemplo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Julio Cesar <julioces@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/JulioCesGO/Exemplo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

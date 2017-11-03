@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="headerFragment">
+	<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/components/bootstrap/dist/css/bootstrap.css}" rel="stylesheet" />
+
+</head>
+<body>
+<div th:fragment="menuFragment">
+	<!--  Menu -->
+</div>
+
+<div th:fragment="scriptFragment">
+	<!-- Script  -->
+	<script th:attr="src=@{/components/bootstrap/dist/js/bootstrap.js}"></script>
+    <script th:attr="src=@{/components/jquery/dist/jquery.js}"></script>
+</div>
+</body>
+</html>

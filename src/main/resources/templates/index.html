@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="thymeleaf/layout :: headerFragment">
 <meta charset="ISO-8859-1"/>
 <title>Insert title here</title>
+
 </head>
 <body>
+	<div th:include="thymeleaf/layout :: menuFragment"></div>
+	
+<h1 id="demo">Hello World</h1>
+<div th:include="thymeleaf/layout :: scriptFragment">
 
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+   
+        alert('ola');
+   
+});
+</script>
 </body>
 </html>

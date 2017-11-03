@@ -59,7 +59,58 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
 			</plugin>
+			 <plugin>
+		      <groupId>org.codehaus.mojo</groupId>
+		      <artifactId>exec-maven-plugin</artifactId>
+		      <executions>
+		        <execution>
+		          <id>exec-npm-install</id>
+		          <phase>generate-sources</phase>
+		          <configuration>
+		            <executable>npm.cmd</executable>
+		            <arguments>
+		              <argument>update</argument>
+		              
+		            </arguments>
+		            <workingDirectory>src/main/resources/static</workingDirectory>
+		                
+		          </configuration>
+		          <goals>
+		            <goal>exec</goal>
+		          </goals>
+		        </execution>
+		        <execution>
+		          <id>exec-bower-install</id>
+		          <phase>generate-sources</phase>
+		          <configuration>
+		            <executable>bower.cmd</executable>
+		            <arguments>
+		              <argument>update</argument>
+		            </arguments>
+		            <workingDirectory>src/main/resources/static</workingDirectory>
+		          </configuration>
+		          <goals>
+		            <goal>exec</goal>
+		          </goals>
+		        </execution>
+		       
+		      </executions>
+		      
+		    </plugin>
+		    <plugin>
+			    <artifactId>maven-clean-plugin</artifactId>
+			   
+			    <configuration>
+			      <filesets>
+			        <fileset>
+			          <directory>src/main/resources/static/components</directory>
+			          <directory>src/main/resources/static/node_modules</directory>
+			        </fileset>
+			      </filesets>
+			    </configuration>
+			  </plugin>
 		</plugins>
 	</build>
 

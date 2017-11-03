@@ -31,8 +31,13 @@ public class PessoaController {
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String abrir(@PathVariable Long id,Model model)
 	{
-		Pessoa pessoa = pessoaService.Abrir(id);
+		//Pessoa pessoa = pessoaService.Abrir(id);
+		
+		List<Pessoa> pessoas = pessoaService.ListarTodosPadrao();
+		
+		Pessoa pessoa = pessoas.get(0);
 		model.addAttribute("pessoa", pessoa);
+		model.addAttribute("method", "PUT");
 		return "pessoa/pessoa";
 	}
 	
@@ -44,19 +49,21 @@ public class PessoaController {
 		return "pessoa/pessoa";
 	}
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
 	public String atualizar(@PathVariable Long id,Model model)
 	{
 		Pessoa pessoa = new Pessoa();
 		model.addAttribute("pessoa", pessoa);
-		return "pessoa/pessoa";
+		
+		return "redirect:/pessoa/"+id;
 	}
 	
-	@RequestMapping(value="/novo",method=RequestMethod.PUT)
+	@RequestMapping(value="/novo",method=RequestMethod.POST)
 	public String salvar(Model model)
 	{
 		Pessoa pessoa = new Pessoa();
 		model.addAttribute("pessoa", pessoa);
+		model.addAttribute("method", "POST");
 		return "redirect:/pessoa";
 	}
 	

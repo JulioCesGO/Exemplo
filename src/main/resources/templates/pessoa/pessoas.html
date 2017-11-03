@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="thymeleaf/layout :: headerFragment">
 <meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+<title>Pessoas</title>
 </head>
 <body>
+	<div th:include="thymeleaf/layout :: menuFragment"></div>
+<div class="row">
+	<div class="lg-12 col">
+		<table>
+			<tbody>
+				<tr data-th-each="pessoa : ${pessoas}">
+					<td data-th-text="${pessoa.nome}"></td>
+					<td data-th-text="${pessoa.idade}"></td>
+					<td>
+						<a th:href="@{'/pessoa/' + *{codigo} ">Abrir</a>
+						<form th:action="@{'/pessoa/' + ${pessoa.codigo} }" method="post">
+							<input type="hidden" name="_method" value="DELETE"/>
+							<button>Remover</button> 
+						</form>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 
-<table>
-	<tbody>
-		<tr data-th-each="pessoa : ${pessoas}">
-			<td data-th-text="${pessoa.nome}"></td>
-			<td data-th-text="${pessoa.idade}"></td>
-			<td>
-				<form action="/${pessoa.id}" method="post">
-					<input type="hidden" name="_method" value="DELETE"/>
-					<button>Remover</button> 
-				</form>
-			</td>
-			
-		</tr>
-	</tbody>
-</table>
-
+<div th:include="thymeleaf/layout :: scriptFragment"></div>
 </body>
 </html>
