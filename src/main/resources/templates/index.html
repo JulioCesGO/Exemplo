@@ -6,11 +6,14 @@
 
 </head>
 <body>
-	<div th:include="thymeleaf/layout :: menuFragment"></div>
+<div class="container">
+<th:block th:include="thymeleaf/layout :: menuFragment"></th:block>
 	
 <h1 id="demo">Hello World</h1>
 
 <div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
+
+</div>
 <script type="text/javascript">
 
 </script>
