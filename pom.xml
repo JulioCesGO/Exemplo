@@ -17,6 +17,27 @@
 		<version>1.5.8.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<distributionManagement>
+  
+        <repository>
+            <id>nexus-releases</id>
+            <name>Repositorio de Releases</name>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+  		<snapshotRepository>
+  			<id>nexus-snapshots</id>
+            <name>Repositorio de Releases</name>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+  		</snapshotRepository>
+    </distributionManagement>
+    
+	<repositories>
+		<repository>
+			<id>maven-group</id>
+			<url>http://localhost:8081/repository/maven-public/</url>
+		</repository>
+		
+	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
