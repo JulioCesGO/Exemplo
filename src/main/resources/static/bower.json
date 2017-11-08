@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "exemplo-js" : "https://github.com/JulioCesGO/Exemplo-JS.git"
+    "bootstrap": "^3.3.7"
   }
 }
