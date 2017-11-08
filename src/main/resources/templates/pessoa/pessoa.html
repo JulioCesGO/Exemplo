@@ -12,19 +12,19 @@
 	<input type="hidden" name="_method" value="" th:attr="value=${method}"/>	
 		<div class="form-group">
 			<label for="codigo">Codigo
-			<input type="text" class="form-control disabled" id="codigo" th:field="${pessoa.codigo}"  />
+			<input type="text" class="exemplojs form-control disabled" id="codigo" th:field="${pessoa.codigo}"  />
 			</label>
 		</div>
 	
 		<div class="form-group col-12">
 			<label>Nome
-				<input type="text" class="form-control" th:field="${pessoa.nome}" />
+				<input type="text" class="exemplojs form-control" th:field="${pessoa.nome}" />
 			</label>
 		</div>
 	
 		<div class="form-group">
 			<label>Idade
-				<input type="number" class="form-control" th:field="${pessoa.idade}" />
+				<input type="number" class="exemplojs form-control" th:field="${pessoa.idade}" />
 			</label>
 		</div>
 		<button type="submit" class="btn">Salvar</button>
@@ -33,5 +33,6 @@
 </div>
 <div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
 <script th:attr="src=@{/exemplo/pessoa/pessoa.js}" ></script>
+<script th:attr="src=@{/components/exemplo-js/exemplo.js}" ></script>
 </body>
 </html>
