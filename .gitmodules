@@ -1,0 +1,4 @@
+[submodule "Exemplo-core"]
+	path = Exemplo-core
+	url = https://github.com/JulioCesGO/Exemplo-core.git
+	branch = master
