@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="thymeleaf/layout :: headerFragment">
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+
+</head>
+<body>
+<div class="container">
+<th:block th:include="thymeleaf/layout :: menuFragment"></th:block>
+	
+<h1 id="demo">Hello World</h1>
+
+<div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
+
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
