@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="thymeleaf/layout :: headerFragment">
+<meta charset="ISO-8859-1"/>
+<title>Pessoas</title>
+</head>
+<body>
+	<div th:include="thymeleaf/layout :: menuFragment"></div>
+	<div class="container">
+	<div class="row">
+		<div class="col">
+			<a href="/pessoa/novo" class="btn btn-primary">Adicionar Novo</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Idade</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="pessoa : ${pessoas}">
+						<td scope="row" data-th-text="${pessoa.nome}"></td>
+						<td data-th-text="${pessoa.idade}"></td>
+						<td>
+							<a  class="btn btn-primary" th:href="@{'/pessoa/' + ${pessoa.codigo} }">Abrir</a>
+							<form th:action="@{'/pessoa/' + ${pessoa.codigo} }" method="post">
+								<input type="hidden" name="_method" value="DELETE"/>
+								<button class="btn btn-primary">Remover</button> 
+							</form>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+<div th:include="thymeleaf/layout :: scriptFragment"></div>
+</body>
+</html>
