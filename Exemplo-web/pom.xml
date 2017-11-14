@@ -80,7 +80,7 @@
 		          <id>exec-npm-install</id>
 		          <phase>generate-sources</phase>
 		          <configuration>
-		            <executable>npm.cmd</executable>
+		            <executable>npm</executable>
 		            <arguments>
 		              <argument>update</argument>
 		              
@@ -96,7 +96,7 @@
 		          <id>exec-bower-install</id>
 		          <phase>generate-sources</phase>
 		          <configuration>
-		            <executable>bower.cmd</executable>
+		            <executable>bower</executable>
 		            <arguments>
 		              <argument>update</argument>
 		            </arguments>
