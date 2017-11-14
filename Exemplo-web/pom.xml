@@ -91,7 +91,7 @@
 		          <goals>
 		            <goal>exec</goal>
 		          </goals>
-		        </execution>
+		        </execution><!--
 		        <execution>
 		          <id>exec-bower-install</id>
 		          <phase>generate-sources</phase>
@@ -106,7 +106,7 @@
 		            <goal>exec</goal>
 		          </goals>
 		        </execution>
-		       
+		       -->
 		      </executions>
 		      
 		    </plugin>
