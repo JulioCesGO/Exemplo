@@ -96,7 +96,7 @@
 		          <id>exec-bower-install</id>
 		          <phase>generate-sources</phase>
 		          <configuration>
-		            <executable>bower</executable>
+		            <executable>/node_modules/.bin/bower</executable>
 		            <arguments>
 		              <argument>update</argument>
 		            </arguments>
