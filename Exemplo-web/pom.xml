@@ -138,6 +138,11 @@
 				    <artifactId>sonar-maven-plugin</artifactId>
 				    <version>5.3</version>
 				</plugin>
+					<plugin>
+				    <groupId>org.jacoco</groupId>
+				    <artifactId>jacoco-maven-plugin</artifactId>
+				    <version>0.7.9</version>
+				</plugin>
 		</plugins>
 	</build>
 
