@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,6 +24,7 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.language>java</sonar.language>
+		<extensao></extensao>
 	</properties>
 
 	<dependencies>
@@ -34,15 +35,15 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			
+
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -65,104 +66,94 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <version>1.4.196</version>
-		    <scope>test</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
 		</dependency>
-		
-	</dependencies>
 
+	</dependencies>
+	<profiles>
+		<profile>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<properties>
+				<extensao>.cmd</extensao>
+			</properties>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
-		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			 	
 			</plugin>
-			
-			 <plugin>
-		      <groupId>org.codehaus.mojo</groupId>
-		      <artifactId>exec-maven-plugin</artifactId>
-		      <executions>
-		        <execution>
-		          <id>exec-npm-install</id>
-		          <phase>generate-sources</phase>
-		          <configuration>
-		            <executable>npm</executable>
-		            <arguments>
-		              <argument>update</argument>
-		              
-		            </arguments>
-		            <workingDirectory>src/main/resources/static</workingDirectory>
-		                
-		          </configuration>
-		          <goals>
-		            <goal>exec</goal>
-		          </goals>
-		        </execution><!--
-		        <execution>
-		          <id>exec-bower-install</id>
-		          <phase>generate-sources</phase>
-		          <configuration>
-		            <executable>/node_modules/.bin/bower</executable>
-		            <arguments>
-		              <argument>update</argument>
-		            </arguments>
-		            <workingDirectory>src/main/resources/static</workingDirectory>
-		          </configuration>
-		          <goals>
-		            <goal>exec</goal>
-		          </goals>
-		        </execution>
-		       -->
-		      </executions>
-		      
-		    </plugin>
-		    <plugin>
-			    <artifactId>maven-clean-plugin</artifactId>
-			   
-			    <configuration>
-			      <filesets>
-			        <fileset>
-			          <directory>src/main/resources/static/components</directory>
-			          
-			        </fileset>
-			        <fileset>
-			          
-			          <directory>src/main/resources/static/node_modules</directory>
-			        </fileset>
-			      </filesets>
-			    </configuration>
-			  </plugin>
-				<plugin>
-				    <groupId>org.codehaus.sonar</groupId>
-				    <artifactId>sonar-maven-plugin</artifactId>
-				    <version>5.3</version>
-				</plugin>
-					<plugin>
-				    <groupId>org.jacoco</groupId>
-				    <artifactId>jacoco-maven-plugin</artifactId>
-				    <version>0.7.9</version>
-					<configuration>
-					  <append>true</append>
-					</configuration>
-					<executions>
-					  <execution>
-					    <goals>
-					      <goal>prepare-agent</goal>
-					    </goals>
-					  </execution>
-					  <execution>
-					    <id>post-unit-test</id>
-					    <phase>test</phase>
-					    <goals>
-					      <goal>report</goal>
-					    </goals>
-					  </execution>
-					</executions>
-				</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<executable>npm${extensao}</executable>
+							<arguments>
+								<argument>update</argument>
+							</arguments>
+							<workingDirectory>src/main/resources/static</workingDirectory>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources/static/components</directory>
+
+						</fileset>
+						<fileset>
+
+							<directory>src/main/resources/static/node_modules</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.sonar</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>5.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
