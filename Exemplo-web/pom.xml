@@ -100,7 +100,7 @@
 						<configuration>
 							<executable>npm${extensao}</executable>
 							<arguments>
-								<argument>update</argument>
+								<argument>install</argument>
 							</arguments>
 							<workingDirectory>src/main/resources/static</workingDirectory>
 						</configuration>
