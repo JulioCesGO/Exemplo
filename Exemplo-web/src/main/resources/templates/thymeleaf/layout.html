@@ -1,50 +1,53 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="headerFragment">
-	<title>Insert title here</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<link th:href="@{/components/bootstrap/dist/css/bootstrap.css}" rel="stylesheet" />
-	<style>
-		body {padding-top: 70px}
-	</style>
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link th:href="@{/components/bootstrap/dist/css/bootstrap.css}"
+	rel="stylesheet" />
+<style>
+body {
+	padding-top: 70px
+}
+</style>
 </head>
 <body>
-<th:block  th:fragment="menuFragment" >
-	<!--  Menu -->
-	<nav class="navbar navbar-default navbar-fixed-top" >
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
-				data-target="#navbarNavAltMarkup" aria-expanded="false">
-				  <span class="sr-only">Toggle navigation</span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Exemplo</a>
+	<th:block th:fragment="menuFragment">
+		<!--  Menu -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbarNavAltMarkup"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Menu</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a href="#" class="dropdown-toogle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Cadastro <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#" th:href="@{/pessoa}">Pessoa</a></li>
+							</ul></li>
+					</ul>
+				</div>
 			</div>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<ul class="nav navbar-nav">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#" th:href="@{/pessoa}">Pessoa</a></li>
-						</ul>
-					</li>
-				</ul>
-		  	</div>
-		</div>
-	</nav>
-</th:block>
+		</nav>
+	</th:block>
 
-<th:block th:fragment="scriptFragment" th:remove="all">
-	<!-- Script  -->
-	<script th:attr="src=@{/components/jquery/dist/jquery.js}"></script>
-	<script th:attr="src=@{/components/bootstrap/dist/js/bootstrap.js}"></script>
-    
-</th:block>
+	<th:block th:fragment="scriptFragment" th:remove="all">
+		<!-- Script  -->
+		<script th:attr="src=@{/components/jquery/dist/jquery.js}"></script>
+		<script th:attr="src=@{/components/bootstrap/dist/js/bootstrap.js}"></script>
+
+	</th:block>
 </body>
 </html>

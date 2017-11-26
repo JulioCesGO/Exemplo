@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="thymeleaf/layout :: headerFragment">
-<meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+<meta charset="ISO-8859-1" />
+<title>Bem-Vindo</title>
 
 </head>
-<body>
-<div class="container">
-<th:block th:include="thymeleaf/layout :: menuFragment"></th:block>
-	
-<h1 id="demo">Hello World</h1>
+<body
+	background="http://saudebusiness.com/his/wp-content/uploads/2017/07/fundo-hackathon-hack4health-everis-his-2017-tecnologia-inovacao-saude-hospitais-operadoras.jpg">
 
-<div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
+	<div class="container">
+		<th:block th:include="thymeleaf/layout :: menuFragment"></th:block>
 
-</div>
-<script type="text/javascript">
+		<h1 id="demo">Bem-Vindo! \o/</h1>
 
-</script>
+		<div th:include="thymeleaf/layout :: scriptFragment" th:remove="tag"></div>
+
+	</div>
+
+	<script type="text/javascript">
+		
+	</script>
 </body>
 </html>
